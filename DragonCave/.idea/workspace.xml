@@ -6,12 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a2d83271-cadc-4c49-869e-3d93f9fc8819" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../TakeAGuess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeAGuess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TakeAGuess/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeAGuess/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,12 +34,32 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Joey/Documents/Pyramid-Academy/TakeAGuess"
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/Joey/Documents/Pyramid-Academy/TakeAGuess",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joey\Documents\Pyramid-Academy\DragonCave\src\java" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DragonCaveTest.getEnding">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="DragonCave" />
@@ -40,8 +67,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DragonCaveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DragonCave" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DragonCaveTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DragonCaveTest.getEnding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DragonCave" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DragonCaveTest" />
+      <option name="METHOD_NAME" value="getEnding" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DragonCaveTest.getEnding" />
+        <item itemvalue="JUnit.DragonCaveTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
