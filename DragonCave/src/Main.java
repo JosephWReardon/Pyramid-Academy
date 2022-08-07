@@ -13,8 +13,13 @@ public class Main {
         System.out.println("You are in a land full of dragons. In front of you,\nyou see two caves. In one cave, the dragon is friendly\nand will share his treasure with you. The other dragon\nis greedy and hungry and will eat you on sight.\nWhich cave will you go into? (1 or 2)\n");
 
         int choice = 0;
+
         while(choice != 1 && choice != 2) {
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         if(choice == cave){
