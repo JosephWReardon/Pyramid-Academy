@@ -16,11 +16,25 @@ public class Main {
 
             System.out.println("Hello! What is your name?\n");
 
-            String name = sc.next();
+            String name;
+
+            try {
+                name = sc.next();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+                break;
+            }
+
 
             System.out.println("\nWell, " + name + ",I am thinking of a number between 1 and 20.\nTake a guess.\n");
 
-            guess = sc.nextInt();
+            try{
+                guess = sc.nextInt();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+                break;
+            }
+
             guesses = 1;
 
             while (number != guess) {
@@ -30,7 +44,12 @@ public class Main {
                     System.out.println("\nYour guess is too low.\nTake a guess.\n");
                 }
 
-                guess = sc.nextInt();
+                try{
+                    guess = sc.nextInt();
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                    break;
+                }
                 guesses++;
             }
 
@@ -42,7 +61,12 @@ public class Main {
 
             while(true) {
 
-                yes = sc.next();
+                try{
+                    yes = sc.next();
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                    break;
+                }
 
                 if (yes.equals("y")) {
                     break;
