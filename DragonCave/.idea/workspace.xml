@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2d83271-cadc-4c49-869e-3d93f9fc8819" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Hangman/src/java/Hangman.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hangman/src/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Hangman/src/test/HangmanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TakeAGuess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeAGuess/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a2d83271-cadc-4c49-869e-3d93f9fc8819" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

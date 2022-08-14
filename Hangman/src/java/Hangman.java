@@ -59,13 +59,14 @@ public class Hangman {
 
         System.out.println("H A N G M A N\n");
 
-        while(this.man < 5 && !guesses.containsAll(letters)){
+        while(this.man < 7 && !guesses.containsAll(letters)){
             hang();
             System.out.println("\nMissed letters: " + this.miss());
             System.out.println(this.fill());
             takeAGuess();
         }
 
+        hang();
         finish();
 
     }
@@ -73,11 +74,15 @@ public class Hangman {
     private void hang(){
 
         switch (this.man) {
-            case 0 -> System.out.println("+---+\n\n    |\n\n    |\n\n    |\n\n   ===");
-            case 1 -> System.out.println("+---+\n\nO   |\n\n    |\n\n    |\n\n   ===");
-            case 2 -> System.out.println("+---+\n\nO   |\n\n|   |\n\n    |\n\n   ===");
-            case 3 -> System.out.println("+---+\n\nO   |\n\n|   |\n\n|   |\n\n   ===");
-            default -> System.out.println("+---+\n\nO   |\n\n|   |\n\n|   |\n\n/  ===");
+            case 0 -> System.out.println("+---+\n\n     |\n\n     |\n\n     |\n\n    ===");
+            case 1 -> System.out.println("+---+\n\n O   |\n\n     |\n\n     |\n\n    ===");
+            case 2 -> System.out.println("+---+\n\n O   |\n\n |   |\n\n     |\n\n    ===");
+            case 3 -> System.out.println("+---+\n\n O   |\n\n |   |\n\n |   |\n\n    ===");
+            case 4 -> System.out.println("+---+\n\n O   |\n\n/|   |\n\n |   |\n\n    ===");
+            case 5 -> System.out.println("+---+\n\n O   |\n\n/|\\  |\n\n |   |\n\n    ===");
+            case 6 -> System.out.println("+---+\n\n O   |\n\n/|\\  |\n\n |   |\n\n/   ===");
+            case 7 -> System.out.println("+---+\n\n O   |\n\n/|\\  |\n\n |   |\n\n/ \\ ===");
+            default -> System.out.println("+---+\n\n O   |\n\n |   |\n\n |   |\n\n/   ===");
         }
 
     }
