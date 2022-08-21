@@ -19,7 +19,7 @@ public class Land {
         if(roll < 3){
             this.setContent(new Goblin(this));
         }else if(roll < 4){
-            this.setContent(new Treasure(this));
+            this.setContent(new Treasure());
         }
 
     }

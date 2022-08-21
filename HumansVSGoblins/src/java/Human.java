@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Human {
@@ -6,6 +7,8 @@ public class Human {
     private Land land;
     private int strength;
     private int health;
+
+    private ArrayList<Item> inventory = new ArrayList<>();
 
     public Human(Land land){
         this.setHealth(30);
@@ -56,9 +59,37 @@ public class Human {
     }
 
     private void combat(Goblin goblin){
+
+        int damage;
         while(this.getHealth() > 0 && goblin.getHealth() > 0){
-            this.setHealth(this.getHealth() - (int) Math.floor(goblin.getStrength() * Math.random()));
-            goblin.setHealth(goblin.getHealth() - (int) Math.floor(this.getStrength() * Math.random()));
+            damage = (int) Math.floor(this.getStrength() * Math.random());
+            goblin.setHealth(goblin.getHealth() - damage);
+
+            if(damage == 0){
+                System.out.println("The human misses.");
+            }else if(damage > .7 * this.getStrength()){
+                System.out.println("The human hits hard for " + damage + ".");
+            }else {
+                System.out.println("The human hits for " + damage + ".");
+            }
+
+            if(goblin.getHealth() > 0) {
+                damage = (int) Math.floor(goblin.getStrength() * Math.random());
+                this.setHealth(this.getHealth() - damage);
+
+                if(damage == 0){
+                    System.out.println("The goblin misses.");
+                }else if(damage > .7 * goblin.getStrength()){
+                    System.out.println("The goblin hits hard for " + damage + ".");
+                }else {
+                    System.out.println("The goblin hits for " + damage + ".");
+                }
+
+            } else{
+                System.out.println("The goblin has died.");
+                this.land.setContent(this);
+                goblin.die();
+            }
         }
 
         if(this.getHealth() > 0){
@@ -72,7 +103,15 @@ public class Human {
     }
 
     private void loot(Treasure treasure){
+        if(treasure != null) {
 
+            for (Item i : treasure.getInventory()) {
+                System.out.println("The human looted " + i.getName() + ".");
+            }
+
+
+            inventory.addAll(treasure.getInventory());
+        }
     }
 
     public String toString(){
@@ -92,7 +131,7 @@ public class Human {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        this.health = Math.max(health, 0);
     }
 
     public int getStrength() {
@@ -101,5 +140,9 @@ public class Human {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public ArrayList<Item> getInventory(){
+        return inventory;
     }
 }
