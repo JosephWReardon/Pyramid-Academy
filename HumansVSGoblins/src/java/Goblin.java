@@ -146,6 +146,10 @@ public class Goblin {
             }
             this.getLand().setContent(human);
             System.out.println("The human has won with " + human.getHealth() + " remaining.");
+            if(human.getCharmType() == 2){
+                human.setBaseStrength(human.getBaseStrength() + human.getCharmStrength());
+                human.setStrength(human.getEquipStrength() + human.getBaseStrength());
+            }
             die();
         }
     }

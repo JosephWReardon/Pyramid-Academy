@@ -19,7 +19,7 @@ public class Item {
 
     private void makeTreasure() {
         Random r = new Random();
-        switch(r.nextInt(0,2)){
+        switch(r.nextInt(0,5)){
             case 0 : {
                 setType(0);
                 switch(r.nextInt(0,2)){
@@ -39,6 +39,20 @@ public class Item {
                 }
                 setStrength(r.nextInt(5,8));
                 setDescription(getName() + " that grants " + getStrength() + " strength when equipped.");
+                break;
+            }
+            case 2:{
+                setType(2);
+                setName("Pendant");
+                setStrength((r.nextInt(1,12)/10) + 1);
+                setDescription(getName() + " that heals " + getStrength() + " health after moving.");
+                break;
+            }
+            case 3: {
+                setType(3);
+                setName("War Relic");
+                setStrength((r.nextInt(1,12)/10) + 1);
+                setDescription(getName() + " that grants " + getStrength() + " strength after combat.");
                 break;
             }
             default:{}
