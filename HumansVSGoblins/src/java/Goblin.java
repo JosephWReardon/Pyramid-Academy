@@ -34,7 +34,7 @@ public class Goblin {
         }
     }
 
-    private Land pathfind(Human target){
+    Land pathfind(Human target){
 
         ArrayList<Character> moves = new ArrayList<>();
 
@@ -63,6 +63,10 @@ public class Goblin {
         for(char c: moves){
             choice = this.move(c);
 
+            if(choice == null){
+                return land;
+            }
+
             if(choice.getContent() == null){
                 break;
             }
@@ -78,12 +82,23 @@ public class Goblin {
 
     private Land move(char c){
 
-        switch(c){
-            case 'n' -> {return Land.map.get(this.land.getCoordinate()[0] + "-" + (this.land.getCoordinate()[1] - 1));}
-            case 's' -> {return Land.map.get(this.land.getCoordinate()[0] + "-" + (this.land.getCoordinate()[1] + 1));}
-            case 'e' -> {return Land.map.get((this.land.getCoordinate()[0] + 1) + "-" + this.land.getCoordinate()[1]);}
-            case 'w' -> {return Land.map.get((this.land.getCoordinate()[0] - 1) + "-" + this.land.getCoordinate()[1]);}
-            default -> {return this.getLand();}
+        switch(c) {
+            case 'n' -> {
+                if(Land.map.get(this.land.getCoordinate()[0] + "-" + (this.land.getCoordinate()[1] - 1)) == null){ Land land = new Land(this.land.getCoordinate()[0],(this.land.getCoordinate()[1] - 1));}
+                return Land.map.get(this.land.getCoordinate()[0] + "-" + (this.land.getCoordinate()[1] - 1));
+            }
+            case 's' -> {
+                return Land.map.get(this.land.getCoordinate()[0] + "-" + (this.land.getCoordinate()[1] + 1));
+            }
+            case 'e' -> {
+                return Land.map.get((this.land.getCoordinate()[0] + 1) + "-" + this.land.getCoordinate()[1]);
+            }
+            case 'w' -> {
+                return Land.map.get((this.land.getCoordinate()[0] - 1) + "-" + this.land.getCoordinate()[1]);
+            }
+            default -> {
+                return this.getLand();
+            }
         }
 
     }
@@ -138,9 +153,19 @@ public class Goblin {
 
             if(this.loot != null) {
 
+                ArrayList<Item> consumed = new ArrayList<>();
+
                 for (Item i : getLoot().getInventory()) {
                     System.out.println("The human looted " + i.getName() + ".");
+                    if(i.getType() == 0){
+                        human.setHealth(human.getHealth() + i.getStrength());
+                        System.out.println("The human ate the " + i.getName() + " bringing their health to " + human.getHealth());
+                        consumed.add(i);
+
+                    }
                 }
+
+                this.loot.getInventory().removeAll(consumed);
 
                 human.getInventory().addAll(this.loot.getInventory());
             }
