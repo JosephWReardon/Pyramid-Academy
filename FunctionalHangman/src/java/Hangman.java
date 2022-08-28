@@ -177,13 +177,13 @@ public class Hangman {
     boolean finish(){
         if(guesses.containsAll(letters)){
 
-            System.out.println("\n\nYes! The secret word is " +'"' + word + '"' + "! You have won!\nDo you want to play again? (yes or no)");
+            System.out.println("\n\nYes! The secret word is " +'"' + word + '"' + "! You have won with a score of " + calcScore() + "!\nDo you want to play again? (yes or no)");
 
             return true;
 
         } else{
 
-            System.out.println("The secret word was " +'"' + word + '"' + ". You have lost.\nDo you want to play again? (yes or no)");
+            System.out.println("The secret word was " +'"' + word + '"' + ". You have lost with a score of " + calcScore() + " .\nDo you want to play again? (yes or no)");
 
             return false;
 
