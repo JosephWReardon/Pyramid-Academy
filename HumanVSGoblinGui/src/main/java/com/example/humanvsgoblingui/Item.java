@@ -98,8 +98,8 @@ public class Item {
     public void setType(int type) {
         if(type < 0){
             this.type = 0;
-        }else if( type > 2){
-            this.type = 2;
+        }else if( type > 3){
+            this.type = 3;
         }else{
             this.type = type;
         }

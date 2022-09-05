@@ -29,24 +29,6 @@ public class Land {
 
     }
 
-    public static void navigateMap(int X, int Y){
-
-        System.out.println("_________________________________________________________________________");
-
-        for(int y = Y - 4; y <= Y + 4; y++){
-            System.out.print("|\t");
-            for(int x = X - 4; x <= X + 4; x++){
-                if(!Land.map.containsKey(x + "-" + y)) {
-                    Land.map.putIfAbsent(x + "-" + y, new Land(x,y));
-                }
-                System.out.print(Land.map.get(x + "-" + y).toString() + "\t|\t");
-            }
-            System.out.println("\n_________________________________________________________________________");
-
-        }
-
-    }
-
     public static GridPane navigate(int X, int Y){
 
         GridPane grid = new GridPane();
