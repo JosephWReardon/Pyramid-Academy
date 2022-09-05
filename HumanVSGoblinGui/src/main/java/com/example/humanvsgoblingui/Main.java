@@ -194,6 +194,7 @@ public class Main extends Application{
     VBox inventory(){
 
         VBox updatedInventory = new VBox();
+        character.cleanInventory();
 
         ArrayList<Button> invent = new ArrayList<>();
         Label temp = new Label("Health:" + character.getHealth() + "\n Strength: " + character.getStrength() + "\n");

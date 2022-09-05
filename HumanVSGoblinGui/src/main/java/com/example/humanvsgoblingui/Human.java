@@ -31,27 +31,6 @@ public class Human {
         land.setContent(this);
     }
 
-    public boolean takeTurn(){
-
-        Scanner s = new Scanner(System.in);
-        char move;
-
-        do{
-            move = s.next().toCharArray()[0];
-            if(move == 'i'){ openInventory(); Land.navigateMap(getLand().getCoordinate()[0],getLand().getCoordinate()[1]);}
-        }while(move != 'n' && move != 's' && move != 'e' && move != 'w' );
-
-        Land next = this.move(move);
-        this.getLand().setContent(null);
-        this.setLand(next);
-        if(charmType == 1){ setHealth(getHealth()+charmStrength);}
-        this.check();
-        this.getLand().setContent(this);
-
-        return this.getHealth() > 0;
-
-    }
-
     boolean makeMove(char c){
 
         Land next = this.move(c);
@@ -73,77 +52,6 @@ public class Human {
         return this.getHealth() > 0;
     }
 
-    private void openInventory() {
-
-        cleanInventory();
-
-        System.out.println("Enter 'c' to close inventory.\nEnter the number of an item to select it.\nEnter 'i' to inspect selected item.\nEnter 'u' to use selected item.\n\nThe human has " + getHealth() + " health and " + getStrength() + " strength.\n");
-
-        int x = 0;
-        for(Item i: inventory){
-            System.out.println((x +1) + ". " + i.getName() + "\t\t" + i.getStrength());
-            x++;
-        }
-
-        if(!inventory.isEmpty()) {
-            char select;
-            Scanner s = new Scanner(System.in);
-            Item item = inventory.get(0);
-
-            useInventory:
-            while (true) {
-                select = s.next().toCharArray()[0];
-                if (select == 'c') {
-                    break useInventory;
-                }
-                if (select == 'i') {
-                    System.out.println(item.getDescription());
-                } else if (select == 'u') {
-                    switch (item.getType()) {
-                        case 0 -> {
-                            setHealth(getHealth() + item.getStrength());
-                            System.out.println("Human consumed the " + item.getName() + " bringing their health to " + getHealth() + ".");
-                            inventory.remove(item);
-                            if (inventory.isEmpty()) {
-                                System.out.println("Inventory is empty.");
-                                break useInventory;
-                            }
-                            item = inventory.get(0);
-                            x--;
-                        }
-                        case 1 -> {
-                            setEquipStrength(item.getStrength());
-                            setStrength(getEquipStrength() + 7);
-                            System.out.println("Human equipped the " + item.getName() + " achieving a strength of " + getStrength() + ".");
-                        }
-                        case 2 -> {
-                            setCharmType(1);
-                            setCharmStrength(item.getStrength());
-                            System.out.println("Human donned the pendant.");
-                        }
-                        case 3 -> {
-                            setCharmType(2);
-                            setCharmStrength(item.getStrength());
-                            System.out.println("Human equipped the war relic.");
-                        }
-                    }
-                }else if(Integer.parseInt(select + "") < 1){
-                    item = inventory.get(0);
-                }else if(Integer.parseInt(select + "") > x){
-                    item = inventory.get(x-1);
-                }else if(Integer.parseInt(select + "") >= 1 || Integer.parseInt(select + "") <= x ){
-                    item = inventory.get(Integer.parseInt(select + "") -1);
-                }
-
-
-            }
-        }else {
-            System.out.println("Inventory is empty.");
-        }
-
-
-    }
-
     void use(String itemName){
 
         itemName = itemName.split(":")[0];
@@ -160,7 +68,7 @@ public class Human {
         switch (item.getType()) {
             case 1 -> {
                 setEquipStrength(item.getStrength());
-                setStrength(getEquipStrength() + 7);
+                setStrength(getEquipStrength() + baseStrength);
                 log.add("Human equipped the " + item.getName() + " achieving a strength of " + getStrength() + ".");
             }
             case 2 -> {
@@ -173,11 +81,14 @@ public class Human {
                 setCharmStrength(item.getStrength());
                 log.add("Human equipped the war relic.");
             }
+            default -> {
+                log.add("Human played with his imagination.");
+            }
         }
 
     }
 
-    private void cleanInventory() {
+    void cleanInventory() {
         if(!inventory.isEmpty()){
 
             int x = 0;
@@ -326,6 +237,8 @@ public class Human {
     public ArrayList<Item> getInventory(){
         return inventory;
     }
+
+    public void setInventory(ArrayList<Item> inventory){this.inventory = inventory;}
 
     public int getEquipStrength() {
         return equipStrength;
